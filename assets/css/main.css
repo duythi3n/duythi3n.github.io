@@ -166,7 +166,7 @@ input, select, textarea {
 /* BG */
 
 	#bg {
-		background: #000000; /*im a boring person*/
+		background-image: linear-gradient(red,white , black);
 		height: 100%;
 		left: 0;
 		opacity: 1;
