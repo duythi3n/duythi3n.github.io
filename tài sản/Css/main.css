@@ -99,7 +99,7 @@ input, select, textarea {
 		}
 
 	body, input, select, textarea {
-		color: #000;
+		Màu sắc: #f;
 		font-family: 'Roboto', sans-serif;
 		font-size: 15pt;
 		font-weight: 300 !important;
@@ -246,7 +246,7 @@ input, select, textarea {
 
 				#header nav a:before {
 					border-radius: 100%;
-					border: solid 1px #000;
+					border: solid 1px #fff;
 					display: block;
 					font-size: 1.75em;
 					height: 2.5em;
