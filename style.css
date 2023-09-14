@@ -36,6 +36,8 @@ body{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    border-bottom: .2rem solid var(--main-color);
+    box-shadow: 0 .5rem 1rem var(--main-color);
 }
 
 .logo{
