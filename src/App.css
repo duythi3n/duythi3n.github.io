@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: "Popipns", sans-serif;
+  text-decoration: none;
+}
+
+:root {
+  --bg-color: #040d12;
+  --text-color: #fff;
+  --main-color: #d71313;
+}
+
+html {
+  font-size: 80%;
+  overflow-x: hidden;
+}
+body {
+  background: #212121;
+  color: var(--text-color);
+}
+
+.newClass {
+  backdrop-filter: blur(10px);
+  border-bottom: 0.2rem solid var(--main-color);
+  box-shadow: 0 0.5rem 1rem var(--main-color);
+}
+
+.left-page img {
+  box-shadow: 0 0.7rem 2rem var(--main-color);
+  animation: floatImage 4s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+  0% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(-2.4rem);
+  }
+  100% {
+    transform: translatey(0);
+  }
+}
