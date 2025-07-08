@@ -12,7 +12,7 @@ const Project = ({ name, title }) => {
         <h2 className="project-name text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#800d0d] to-[#5a0606] aos-init aos-animate">
           <span className="">{name}</span>
         </h2>
-        <p className="project-title mt-2 text-gray-400 max-w-2xl mx-auto text-2xl gap-2">
+        <p className="project-title mt-2 text-gray-400 max-w-2xl mx-auto text-3xl sm:text-lg flex items-center justify-center gap-2 aos-init aos-animate">
           {title}
         </p>
       </div>

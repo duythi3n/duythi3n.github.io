@@ -1,12 +1,12 @@
 import { GiStarfighter } from "react-icons/gi";
 import { FaQuoteLeft } from "react-icons/fa";
-import useAOS from "../../Hooks/useAOS.jsx";
+// import useAOS from "../../Hooks/useAOS.jsx";
 import "aos/dist/aos.css";
 import Viewproject from "../../component/Button/Viewproject.jsx";
 import DownCV from "../../component/Button/DownCV.jsx";
 
 const About = ({ name }) => {
-  useAOS();
+  // useAOS();
   return (
     <div
       className="about min-h-screen pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] mt-20 sm-mt-0 scroll-mt-32"
