@@ -1,3 +1,4 @@
+import React from "react";
 import { CiMail, CiUser } from "react-icons/ci";
 import { BiMessage } from "react-icons/bi";
 import { RiContactsBook3Line, RiShareBoxLine } from "react-icons/ri";
@@ -10,24 +11,49 @@ import {
   IoLogoTiktok,
 } from "react-icons/io5";
 
-const Contact = () => {
+const Contact = ({ name, title }) => {
+  const [result, setResult] = React.useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    // setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "17b6fcf2-ff27-4025-912c-337370533613");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      alert("Thanks for your information!");
+      // setResult();
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
   return (
-    <div className="px-[5%] sm:px-[5%] lg:px-[10%] " id="contact">
+    <div className="contact px-[5%] sm:px-[5%] lg:px-[10%] " id="contact">
       <div className="text-center lg:mt-[5%] mt-10 mb-2 sm:px-0 px-[5%]">
         <h2
-          className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#800d0d] to-[#5a0606] aos-init aos-animate"
+          className="inline-block text-6xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#800d0d] to-[#5a0606] aos-init aos-animate"
           data-aos="fade-down"
           data-aos-duration="1000"
         >
-          <span>Contact</span>
+          <span>{name}</span>
         </h2>
         <p
           className="mt-2 text-gray-400 max-w-2xl mx-auto text-3xl sm:text-lg flex items-center justify-center gap-2 aos-init aos-animate"
           data-aos="fade-up"
           data-aos-duration="1100"
         >
-          Have a question? Send me a message, and I'll get back to you as soon
-          as possible.
+          {title}
         </p>
       </div>
       <div className="h-auto py-10 flex items-center justify-center 2xl:pr-[3.1%] lg:pr-[3.8%]  md:px-0">
@@ -36,7 +62,7 @@ const Contact = () => {
             <div className="flex justify-between items-start mb-8">
               <div>
                 <h2 className="text-4xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#800d0d] to-[#5a0606]">
-                  Liên Hệ
+                  Contact
                 </h2>
                 <p className="text-gray-400">
                   Got something to discuss? Send me a message and let's talk.
@@ -44,7 +70,7 @@ const Contact = () => {
               </div>
               <RiContactsBook3Line className="w-10 h-10 text-[#872d2d] opacity-50" />
             </div>
-            <div className="space-y-6">
+            <form className="space-y-6" onSubmit={onSubmit}>
               <div
                 className="relative group aos-init aos-animate"
                 data-aos="fade-up"
@@ -56,6 +82,7 @@ const Contact = () => {
                   name="name"
                   placeholder="Name"
                   className="w-full p-4 pl-12 bg-white/10 rounded-xl border border-white/20 placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300 hover:border-[#6366f1]/30 disabled:opacity-50"
+                  required
                 />
               </div>
               <div
@@ -66,9 +93,10 @@ const Contact = () => {
                 <CiMail className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-[#f16363] transition-colors" />
                 <input
                   type="mail"
-                  name="mail"
+                  name="email"
                   placeholder="Email"
                   className="w-full p-4 pl-12 bg-white/10 rounded-xl border border-white/20 placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300 hover:border-[#6366f1]/30 disabled:opacity-50"
+                  required
                 />
               </div>
               <div
@@ -79,12 +107,14 @@ const Contact = () => {
                 <BiMessage className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-[#f16363] transition-colors" />
                 <input
                   type="text"
-                  name="name"
+                  name="message"
                   placeholder="Message"
                   className="w-full p-4 pl-12 bg-white/10 rounded-xl border border-white/20 placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300 hover:border-[#6366f1]/30 disabled:opacity-50"
+                  required
                 />
               </div>
               <button
+                type="submit"
                 className="w-full bg-gradient-to-r from-[#c94f4f] to-[#872d2d] text-white py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#6366f1]/20 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 aos-init aos-animate"
                 data-aos="fade-up"
                 data-aos-duration="300"
@@ -92,7 +122,8 @@ const Contact = () => {
                 <FiSend />
                 Send
               </button>
-            </div>
+            </form>
+            <span>{result}</span>
           </div>
           <div className="flex justify-center space-x-6">
             <div className="w-full bg-gradient-to-br from-white/10 to-white/5 rounded-2xl p-6 py-8 backdrop-blur-xl">

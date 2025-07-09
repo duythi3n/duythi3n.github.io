@@ -32,7 +32,12 @@ function App() {
           "Explore my journey through projects, certifications, and technical expertise. Each section represents a milestone in my continuous learning path."
         }
       />
-      <Contact />
+      <Contact
+        name={"Contact"}
+        title={
+          "Have a question? Send me a message, and I'll get back to you as soon as possible"
+        }
+      />
       <Footer />
     </>
   );

@@ -12,7 +12,9 @@ const Headeritem = ({ image, home, about, projects, contact, className }) => {
   return (
     <>
       <nav
-        className={`fixed w-full top-0 z-50 transition-all duration-500 bg-transparent ${className}`}
+        className={`fixed w-full top-0 z-50 transition-all duration-500 ${
+          menuOpen ? "newClass" : ""
+        }  ${className}`}
       >
         <div className="mx-auto px-[5%] sm:px-[5%] lg:px-[10%]">
           <div className="flex items-center justify-between h-16">
@@ -96,51 +98,53 @@ const Headeritem = ({ image, home, about, projects, contact, className }) => {
             menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           } overflow-hidden`}
         >
-          <div className="px-4 py-6 space-y-4 bg-[#1f1f1f]">
-            <a
-              href="#home"
-              className={`block px-4 py-3 text-lg font-medium bg-gradient-to-r from-[#800d0d] to-[#910b0b] bg-clip-text text-transparent hover:text-white transform transition-all duration-500 ease-in-out ${
-                menuOpen
-                  ? "translate-x-0 opacity-100 delay-100"
-                  : "translate-x-12 opacity-0 delay-0"
-              }`}
-              onClick={() => setMenuOpen(false)}
-            >
-              {home}
-            </a>
-            <a
-              href="#about"
-              className={`block px-4 py-3 text-lg font-medium bg-gradient-to-r from-[#800d0d] to-[#910b0b] bg-clip-text text-transparent hover:text-white transform transition-all duration-500 ease-in-out ${
-                menuOpen
-                  ? "translate-x-0 opacity-100 delay-200"
-                  : "translate-x-12 opacity-0 delay-0"
-              }`}
-              onClick={() => setMenuOpen(false)}
-            >
-              {about}
-            </a>
-            <a
-              href="#projects"
-              className={`block px-4 py-3 text-lg font-medium bg-gradient-to-r from-[#800d0d] to-[#910b0b] bg-clip-text text-transparent hover:text-white transform transition-all duration-500 ease-in-out ${
-                menuOpen
-                  ? "translate-x-0 opacity-100 delay-300"
-                  : "translate-x-12 opacity-0 delay-0"
-              }`}
-              onClick={() => setMenuOpen(false)}
-            >
-              {projects}
-            </a>
-            <a
-              href="#contact"
-              className={`block px-4 py-3 text-lg font-medium bg-gradient-to-r from-[#800d0d] to-[#910b0b] bg-clip-text text-transparent hover:text-white transform transition-all duration-500 ease-in-out ${
-                menuOpen
-                  ? "translate-x-0 opacity-100 delay-400"
-                  : "translate-x-12 opacity-0 delay-0"
-              }`}
-              onClick={() => setMenuOpen(false)}
-            >
-              {contact}
-            </a>
+          <div className="px-4 py-6 space-y-4 bg-transparent">
+            <div className="flex flex-col">
+              <a
+                href="#home"
+                className={` px-4 py-3 text-lg font-bold bg-gradient-to-r from-[#800d0d] to-[#910b0b] bg-clip-text text-transparent hover:text-white transform transition-all duration-500 ease-in-out ${
+                  menuOpen
+                    ? "translate-x-0 opacity-100 delay-100"
+                    : "translate-x-12 opacity-0 delay-0"
+                }`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {home}
+              </a>
+              <a
+                href="#about"
+                className={` px-4 py-3 text-lg font-bold bg-gradient-to-r from-[#800d0d] to-[#910b0b] bg-clip-text text-transparent hover:text-white transform transition-all duration-500 ease-in-out ${
+                  menuOpen
+                    ? "translate-x-0 opacity-100 delay-200"
+                    : "translate-x-12 opacity-0 delay-0"
+                }`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {about}
+              </a>
+              <a
+                href="#projects"
+                className={` px-4 py-3 text-lg font-bold bg-gradient-to-r from-[#800d0d] to-[#910b0b] bg-clip-text text-transparent hover:text-white transform transition-all duration-500 ease-in-out ${
+                  menuOpen
+                    ? "translate-x-0 opacity-100 delay-300"
+                    : "translate-x-12 opacity-0 delay-0"
+                }`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {projects}
+              </a>
+              <a
+                href="#contact"
+                className={` px-4 py-3 text-lg font-bold bg-gradient-to-r from-[#800d0d] to-[#910b0b] bg-clip-text text-transparent hover:text-white transform transition-all duration-500 ease-in-out ${
+                  menuOpen
+                    ? "translate-x-0 opacity-100 delay-400"
+                    : "translate-x-12 opacity-0 delay-0"
+                }`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {contact}
+              </a>
+            </div>
           </div>
         </div>
       </nav>
